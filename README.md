@@ -2,6 +2,17 @@
 
 Turn GitHub activity into a status report your client reads in two minutes: what was delivered, what was fixed, what is in progress, what needs a decision.
 
+## Install
+
+**Claude app (web, desktop):** Plugins → add a marketplace from a GitHub repository → `xelA31B/client-progress-report` → install **Client Progress Report**. Once approved in the Claude directory, search for **Client Progress Report** in Plugins.
+
+**Claude Code (VS Code or terminal):**
+
+```
+/plugin marketplace add xelA31B/client-progress-report
+/plugin install client-progress-report@client-progress-report
+```
+
 ## Skills
 
 | Skill | What you get |

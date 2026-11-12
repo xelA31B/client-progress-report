@@ -1,0 +1,14 @@
+{
+  "name": "client-progress-report",
+  "owner": {
+    "name": "xelA31B"
+  },
+  "description": "Single-plugin marketplace by xelA31B: Turn GitHub activity into a concise, professional status report for clients and stakeholders: delivered, fixed, in progress, risks, next steps — plus user-facing release notes. Plain business language, in the language of the request.",
+  "plugins": [
+    {
+      "name": "client-progress-report",
+      "source": "./",
+      "description": "Turn GitHub activity into a concise, professional status report for clients and stakeholders: delivered, fixed, in progress, risks, next steps — plus user-facing release notes. Plain business language, in the language of the request."
+    }
+  ]
+}
