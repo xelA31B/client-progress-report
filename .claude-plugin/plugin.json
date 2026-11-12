@@ -1,7 +1,7 @@
 {
   "name": "client-progress-report",
   "displayName": "Client Progress Report",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Turn GitHub activity into a concise, professional status report for clients and stakeholders: delivered, fixed, in progress, risks, next steps — plus user-facing release notes. Plain business language, in the language of the request.",
   "author": {
     "name": "xelA31B"

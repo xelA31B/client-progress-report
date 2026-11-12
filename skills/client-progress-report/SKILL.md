@@ -30,7 +30,8 @@ Ask in one short message only for what is missing:
 1. Repository (owner/repo or URL); several repositories are allowed.
 2. Period — default: last 7 days.
 3. Audience — **Client** (non-technical, default) or **Team lead** (adds technical appendix).
-4. Optional: project milestones or deadlines to report against.
+4. Detail level — **Detailed** (default), **Standard**, or **Brief** (5 bullets for a chat message or email).
+5. Optional: project milestones or deadlines to report against.
 
 ## Step 2 — Collect activity
 
@@ -59,11 +60,21 @@ Group the work into client-facing categories:
 - **Risks / blockers** — stalled PRs, failing builds, critical open bugs, missed milestones
 - **Next** — what logically follows (open PRs close to merge, planned issues)
 
-Merge small related changes into one line. Skip pure maintenance (dependency bumps, formatting, typos) unless it matters to the client; count it in one line ("+12 maintenance updates").
+Also group every item by **area** (e.g. Website/UI, Mobile, API/integrations, Search & social visibility, Security, Performance, Payments, Content, Infrastructure) and record its **date**.
+
+Detail rules:
+
+- **Detailed (default):** one line per meaningful change — do not merge distinct changes. Each line: what changed → what it means for the client/users, with the date. Add the activity metrics table, the day-by-day timeline and evidence for every risk (e.g. "menu fixed 4 times on 11 Nov").
+- **Standard:** merge closely related changes into one line per area; keep metrics, drop the timeline.
+- **Brief:** status + 5 bullets, no tables.
+
+Skip pure maintenance (dependency bumps, formatting, typos) unless it matters to the client; count it in one line ("+12 maintenance updates").
+
+When the repository has no plan for next week (no open milestones, issues or PRs), say so in one line and suggest 2–3 next steps that follow logically from the open risks and unfinished work, clearly marked as suggestions.
 
 ## Step 4 — Write the report
 
-Use `references/report-template.md`. Keep the client version to one screen. Add the technical appendix only for the Team lead audience or on request.
+Use `references/report-template.md` for the chosen detail level. Detailed: up to two pages. Standard: one page. Brief: one screen. Add the technical appendix only for the Team lead audience or on request.
 
 Close with one line offering: release notes for end users (`release-notes`), or a report for another period.
 
