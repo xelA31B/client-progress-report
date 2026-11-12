@@ -81,3 +81,8 @@ Close with one line offering: release notes for end users (`release-notes`), or 
 ## Deliverable
 
 Deliver as a document artifact if available, otherwise formatted markdown in chat, plus a short summary in the chat reply.
+
+## Recurring run
+
+Recommend a cadence at the end of the report: weekly, on Friday afternoon, for the past 7 days (or at the end of each sprint).
+If the environment offers scheduled tasks (a scheduling tool is available), offer in one line to set one up, e.g. "every Monday at 09:00". Create it only after the user agrees and confirms day and time. Write the scheduled prompt so it is self-contained: what to check (project, repository or company), which skill to run, and where to deliver the result. If no scheduling tool is available, state the recommended cadence and suggest a calendar reminder.
