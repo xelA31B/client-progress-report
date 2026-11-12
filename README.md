@@ -20,6 +20,15 @@ Turn GitHub activity into a status report your client reads in two minutes: what
 | **client-progress-report** | One-screen weekly (or any period) update with status 🟢/🟡/🔴, delivered, fixed, in progress, risks, next steps. Optional technical appendix for team leads. |
 | **release-notes** | Short user-facing release notes from merged pull requests, commits or a release. |
 
+## Commands
+
+Type `/` in Claude and pick a command:
+
+| Command | What it does |
+|---|---|
+| `/changelog [owner/repo] [version or period]` | User-facing release notes from a repository |
+| `/client-report [owner/repo] [period] [brief|standard|detailed]` | Client status report from GitHub activity |
+
 ## How to use
 
 Ask Claude in any language:
