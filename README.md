@@ -1,0 +1,32 @@
+# Client Progress Report — Claude plugin
+
+Turn GitHub activity into a status report your client reads in two minutes: what was delivered, what was fixed, what is in progress, what needs a decision.
+
+## Skills
+
+| Skill | What you get |
+|-------|--------------|
+| **client-progress-report** | One-screen weekly (or any period) update with status 🟢/🟡/🔴, delivered, fixed, in progress, risks, next steps. Optional technical appendix for team leads. |
+| **release-notes** | Short user-facing release notes from merged pull requests, commits or a release. |
+
+## How to use
+
+Ask Claude in any language:
+
+- "Weekly client report for acme/webshop"
+- "Сделай отчёт для заказчика по репозиторию acme/webshop за 2 недели"
+- "Write release notes for v1.4 of acme/webshop"
+
+## Requirements
+
+GitHub access in Claude (the GitHub connector), `gh`/`git` in Claude Code, or a pasted list of pull requests / commits.
+
+## Principles
+
+- Concise, professional, no filler; always in the language of the request.
+- Every line traces back to real repository activity. Nothing is invented.
+- Reports on the work, never on individual developers.
+
+## License
+
+MIT
