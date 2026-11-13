@@ -47,3 +47,7 @@ Produce short, user-facing release notes from repository changes.
 ```
 
 Omit empty sections. Keep the whole note under 200 words unless the user asks for more.
+
+## Branded document
+
+Start the deliverable with the header block from `references/doc-template.md` and follow its structure. When the environment can render HTML artifacts or files, deliver it with the HTML version of that template; when delivering as a document artifact or markdown, use the header block and the same section structure.
