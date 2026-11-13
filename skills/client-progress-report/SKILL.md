@@ -82,6 +82,10 @@ Close with one line offering: release notes for end users (`release-notes`), or 
 
 Deliver as a document artifact if available, otherwise formatted markdown in chat, plus a short summary in the chat reply.
 
+## Branded report
+
+If the environment can render HTML artifacts or files, deliver the full report using `references/report-template.html` (fill the placeholders, keep the design and colours; use the score ring for the main score and status chips for pass / warn / fail / not checked). Otherwise use the markdown format above. Keep the chat reply to a short summary either way.
+
 ## Recurring run
 
 At the end of the report, offer a recurring run. Recommended cadence: weekly, on Friday afternoon, for the past 7 days (or at the end of each sprint).

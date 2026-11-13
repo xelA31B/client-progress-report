@@ -47,6 +47,10 @@ GitHub access in Claude (the GitHub connector), `gh`/`git` in Claude Code, or a 
 - Every line traces back to real repository activity. Nothing is invented.
 - Reports on the work, never on individual developers.
 
+## Reports
+
+Concise reports in the language of your request, delivered as a branded HTML report where supported.
+
 ## License
 
 MIT
