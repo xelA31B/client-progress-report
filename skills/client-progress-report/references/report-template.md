@@ -1,82 +1,106 @@
-# Report templates
+# Branded report template
 
-Write in the language of the request; translate headings. Business style, one line per item, no narrative paragraphs. Every item traces to real repository activity.
+Use this design when the environment can render an HTML artifact or file. Copy the HTML below, fill every `{{PLACEHOLDER}}`, repeat the marked rows as needed and keep the colours and layout. It is static HTML and CSS only — do not add scripts.
 
-## Detailed (default, ≤ 2 pages)
+Status classes: `ok` (pass / install), `warn` (conditions / partial), `bad` (fail / do not install), `na` (not checked / not available). Set the score ring with `style="--v:SCORE"` (0–100).
 
-```
-# Project update — [Project] · [period]
+```html
+<!DOCTYPE html>
+<!--
+  Branded report template (xelA31B plugin family). Static HTML and CSS only.
+  Fill the {{PLACEHOLDERS}}; repeat the marked rows as needed; keep the design tokens.
+  Status classes: ok (pass/install), warn (conditions), bad (fail/do not install), na (not available).
+-->
+<html lang="{{LANG}}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{TITLE}}</title>
+<style>
+  :root{
+    --navy:#1C1E4E; --teal:#0E7480; --gold:#FFC448; --ink:#14162F; --muted:#5B6275;
+    --bg:#F6F7FB; --card:#FFFFFF; --line:#E3E6EF;
+    --ok:#1F9D63; --warn:#E0A000; --bad:#D64545; --na:#8A90A2;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:Inter,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.45}
+  .hero{background:linear-gradient(160deg,var(--navy),var(--teal));color:#fff;padding:32px 28px 28px}
+  .hero .brand{font-size:12px;letter-spacing:.12em;text-transform:uppercase;opacity:.8}
+  .hero h1{margin:6px 0 4px;font-size:26px}
+  .hero .meta{opacity:.85;font-size:14px}
+  .wrap{max-width:980px;margin:-18px auto 40px;padding:0 16px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px 22px;margin-bottom:16px}
+  .summary{display:flex;gap:24px;align-items:center;flex-wrap:wrap}
+  .ring{--v:0;width:120px;height:120px;border-radius:50%;
+        background:conic-gradient(var(--teal) calc(var(--v)*1%),var(--line) 0);
+        display:grid;place-items:center;flex:none}
+  .ring span{width:92px;height:92px;border-radius:50%;background:#fff;display:grid;place-items:center;
+             font-size:28px;font-weight:700;color:var(--navy)}
+  .verdict{font-size:20px;font-weight:700}
+  .chip{display:inline-block;padding:2px 10px;border-radius:999px;font-size:12px;font-weight:600;color:#fff}
+  .ok{background:var(--ok)} .warn{background:var(--warn)} .bad{background:var(--bad)} .na{background:var(--na)}
+  h2{font-size:16px;margin:0 0 12px;color:var(--navy)}
+  table{width:100%;border-collapse:collapse;font-size:14px}
+  th{text-align:left;color:var(--muted);font-weight:600;border-bottom:2px solid var(--line);padding:8px 6px}
+  td{border-bottom:1px solid var(--line);padding:8px 6px;vertical-align:top}
+  code{background:#EEF1F7;padding:1px 5px;border-radius:5px;font-size:12.5px}
+  ul{margin:6px 0 0 18px;padding:0}
+  .foot{color:var(--muted);font-size:12px;text-align:center;margin-top:20px}
+  .accent{color:var(--gold)}
+</style>
+</head>
+<body>
+  <header class="hero">
+    <div class="brand">{{PLUGIN_NAME}} <span class="accent">✦</span></div>
+    <h1>{{TITLE}}</h1>
+    <div class="meta">{{SUBJECT}} · {{DATE}}</div>
+  </header>
 
-**Status:** 🟢 On track / 🟡 Attention needed / 🔴 Blocked — one-line reason
+  <main class="wrap">
+    <section class="card summary">
+      <div class="ring" style="--v:{{SCORE}}"><span>{{SCORE}}</span></div>
+      <div>
+        <div class="verdict">{{VERDICT_ICON}} {{VERDICT}}</div>
+        <div>{{ONE_LINE_REASON}}</div>
+        <ul>
+          <!-- repeat: key point -->
+          <li>{{KEY_POINT}}</li>
+        </ul>
+      </div>
+    </section>
 
-## Summary
-- 3–4 bullets: main result of the period, most important fix, main risk, decision needed
+    <section class="card">
+      <h2>{{SECTION_SIGNALS_TITLE}}</h2>
+      <table>
+        <thead><tr><th>{{COL_SOURCE}}</th><th>{{COL_RESULT}}</th><th>{{COL_EVIDENCE}}</th></tr></thead>
+        <tbody>
+          <!-- repeat: one row per source -->
+          <tr><td>{{SOURCE}}</td><td><span class="chip {{STATUS_CLASS}}">{{STATUS}}</span> {{RESULT}}</td><td><code>{{EVIDENCE}}</code></td></tr>
+        </tbody>
+      </table>
+    </section>
 
-## Activity
-| Metric | Value |
-|--------|-------|
-| Working days with changes | N (dates) |
-| Changes merged | N |
-| New features / improvements | N |
-| Fixes | N |
-| Issues closed / opened | N / N |
-| Releases | N |
+    <section class="card">
+      <h2>{{SECTION_FINDINGS_TITLE}}</h2>
+      <table>
+        <thead><tr><th>#</th><th>{{COL_SEVERITY}}</th><th>{{COL_FINDING}}</th><th>{{COL_EVIDENCE}}</th><th>{{COL_FIX}}</th></tr></thead>
+        <tbody>
+          <!-- repeat: one row per finding -->
+          <tr><td>{{N}}</td><td><span class="chip {{STATUS_CLASS}}">{{SEVERITY}}</span></td><td>{{FINDING}}</td><td><code>{{EVIDENCE}}</code></td><td>{{FIX}}</td></tr>
+        </tbody>
+      </table>
+    </section>
 
-## Delivered — by area
-### [Area, e.g. Website]
-- [date] What changed → what it gives the client/users
-### [Area, e.g. API]
-- …
+    <section class="card">
+      <h2>{{SECTION_NEXT_TITLE}}</h2>
+      <ul>
+        <!-- repeat: next step / not available item -->
+        <li>{{NEXT_STEP}}</li>
+      </ul>
+    </section>
 
-## Fixed — by area
-### [Area]
-- [date] Problem that no longer happens → impact (e.g. "launch blocker", "users affected")
-
-## In progress
-| Item | State | Expected next step |
-|------|-------|--------------------|
-
-## Risks & decisions needed
-| Risk | Evidence | Impact | Recommended action | Owner |
-|------|----------|--------|--------------------|-------|
-(write "None" if empty)
-
-## Timeline
-| Date | Main work |
-|------|-----------|
-
-## Next steps
-- From the repository: …
-- Suggested (not in the repository): … — mark clearly as suggestions
-
-_Basis: N merged changes, N commits, N issues, N releases · source: [repo] · period: …_
-```
-
-## Standard (1 page)
-
-Same sections without Timeline; Delivered and Fixed merged to one line per area.
-
-## Brief (one screen)
-
-```
-**[Project] · [period] · Status 🟢/🟡/🔴**
-- Main result
-- Key fix
-- Key risk
-- Decision needed
-- Next step
-```
-
-Status rule: 🔴 if a blocker or failing main build exists; 🟡 if a milestone is at risk, critical bugs are open, PRs are stalled or there are no automated checks on direct pushes to production; otherwise 🟢.
-
-## Team lead appendix (on request, any level)
-
-```
-## Technical appendix
-| Area | Item | PR / commit | Date | State |
-|------|------|-------------|------|-------|
-
-- Stalled PRs (> 5 days): …
-- CI on default branch: passing / failing / none
-- Open critical issues: …
+    <div class="foot">{{PLUGIN_NAME}} · {{FOOTER_NOTE}}</div>
+  </main>
+</body>
+</html>
 ```
